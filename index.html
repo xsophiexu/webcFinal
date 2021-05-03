@@ -8,12 +8,84 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
   </head>
-  <!-- web colors: 000000 green 00FF9F blue 00B8FF dark 001EFF purp BD00FF bright D600FF -->
-  <body><div id="mainContainer">
-    <audio autoplay><source src="typing.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+  <!-- web colors: orange FF8826 green 00FF9F blue 00B8FF dark 001EFF purp BD00FF bright D600FF -->
+  <body><code id="random">struct group_info init_groups = { .usage = ATOMIC_INIT(2) };
+
+struct group_info *groups_alloc(int gidsetsize){
+
+struct group_info *group_info;
+
+int nblocks;
+
+int i;
+
+
+
+nblocks = (gidsetsize + NGROUPS_PER_BLOCK - 1) / NGROUPS_PER_BLOCK;
+
+/* Make sure we always allocate at least one indirect block pointer */
+
+nblocks = nblocks ? : 1;
+
+group_info = kmalloc(sizeof(*group_info) + nblocks*sizeof(gid_t *), GFP_USER);
+
+if (!group_info)
+
+  return NULL;
+
+group_info->ngroups = gidsetsize;
+
+group_info->nblocks = nblocks;
+
+atomic_set(&group_info->usage, 1);
+
+
+
+if (gidsetsize <= NGROUPS_SMALL)
+
+  group_info->blocks[0] = group_info->small_block;
+
+else {
+
+  for (i = 0; i < nblocks; i++) {
+
+    gid_t *b;
+
+    b = (void *)__get_free_page(GFP_USER);
+
+    if (!b)
+
+      goto out_undo_partial_alloc;
+
+    group_info->blocks[i] = b;
+
+  }
+
+}
+
+return group_info;
+
+
+
+out_undo_partial_alloc:
+
+while (--i >= 0) {
+
+  free_page((unsigned long)group_info->blocks[i]);
+
+}
+
+kfree(group_info|</code>
+<div id="mainContainer">
+    <audio id="type"><source src="typing.wav" type="audio/wav">Your browser does not support the audio element.</audio>
     <code id="greeting"></code>
+
     <video id="videoElement"></video>
     <!-- <code>jaoidpsghwioegj hscript@jsioawp</code> -->
     <link rel="script" href="script.js"><script src="script.js"></script>
   </div></body>
 </html>
+<!-- ask about audio, webcam,
+timing with transition, eventlistener,
+
+-->
