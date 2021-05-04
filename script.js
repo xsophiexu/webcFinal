@@ -55,55 +55,51 @@ let brokenScreen = [
   { // Fiction vs reality, time
     "title" : "content",
     "words" :[
-    { "first":"ownership", "more":[ "copyright", "ownership"]},
+    { "first":"ownership", "more":[ "copyright", "ownership", "YouTube"]},
     { "first":"expectations", "more":[ "expectations", "parasocial", "stress", "demand"]},
-    { "first":"algorithm", "more":[ "algorithm", "fake news"]},
-    { "first":"monetization", "more":[ "monetization", "restrictions"]}
+    { "first":"negativity", "more":[ "online gambling", "online hate", "cyberbullying", "addiction"]},
+    { "first":"algorithm", "more":[ "algorithm", "fake news", "ethics", "influence", "machine learning", "bias"]},
+    { "first":"monetization", "more":[ "monetization", "restrictions", "brands", "advertising", "consumption"]}
     ]
   },
   { // camera shows viewer, displays comments of others
     "title" : "mentality",
     "words": [
-    { "first":"self-image", "more":[ "self-image", "comparison", "friendship paradox", "beauty", "" ] },
-    { "first":"mental health", "more":[ ]},
-    { "first":"perception", "more":[ ]},
-    { "first":"curated image", "more":[ "real vs ideal", "presentation"] }
+    { "first":"self-image", "more":[ "self-image", "comparison", "friendship paradox", "beauty", "perception" ] },
+    { "first":"mental health", "more":[ "depression", "social isolation", "anxiety", "addiction", "confident", "satisfied", "happy"]},
+    { "first":"friends", "more":[ "friends", "online vs in-person", "forums", "social", "belonging", "understanding"]},
+    { "first":"presentation", "more":[ "real vs ideal", "presentation", "social media", "happy", "currated image"] }
     ]
   },
   {
-    "title" : "ideology",
+    "title" : "platform and consumer",
     "words" :[
-    { "first":"dark patterns", "more":[ ]},
+    { "first":"ideology", "more":[ "dark patterns", "planned obsolescence"]},
+    { "first":"changed behavior", "more":[ "herd mentality", "dark patterns", "marketing", "changed behavior", "products"]},
+    { "first":"security", "more":[ "authentification", "passcodes", "log-in", "accounts"]},
     { "first":"consumption", "more":[ ]},
-    { "first":"changed behavior", "more":[ ]},
     ]
   },
   { // show log of what the user has done on the website, positive language
     "title" : "privacy",
     "words" :[
     { "first":"privacy", "more":[ ]},
-    { "first":"freedom", "more":[ "THE PERVERT'S GUIDE TO IDEOLOGY", "government"]},
-    { "first":"surveillance", "more":[ "facial recognition"]},
+    { "first":"government", "more":[ ]},
+    { "first":"freedom", "more":[ ]},
+    { "first":"facial recognition", "more":[ ]},
+    { "first":"surveillance", "more":[ ]},
     { "first":"data mining", "more":[ ]}
     ]
   },
   { // Idols, gender, anonymity // Identity, exploration, fear of failure, depression
     "title" : "creator",
     "words" :[
-    { "first":"personalities", "more":[ "personalities", "idols", "celebrity", "anonymity", "parasocial"]},
+    { "first":"personalities", "more":[ "personalities", "idols", "celebrity", "anonymity", "parasocial", "freedom"]},
     { "first":"live-streaming", "more":[ ]},
-    { "first":"expectations", "more":[ "expectations", "pressure", "clout chasing", "cancel culture"]},
+    { "first":"expectations", "more":[ "expectations", "pressure", "clout chasing", "cancel culture", "burden"]},
     { "first":"brand", "more":[ "brand", "sell-out"]}
     ]
-  },
-  {
-    "title" : "consumer",
-    "words" :[
-    { "first":"planned obsolescence", "more":[ ]},
-    { "first":"changed behavior", "more":[ ]},
-    { "first":"", "more":[ ]}
-    ]
-  } //owner { "first":"", "more":[ ]},
+  }
 ];
 
 var h, w, size = 0;
