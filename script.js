@@ -1,14 +1,18 @@
 var state = 0; var num = 0;
 var typed = document.getElementById("random");
 typed.style.display = "none";
+
 var greet = ["B","r","e","a","k"," ","t","h","e"," ","S","c","r","e","e","n"]
 var typeSound = document.getElementById('type');
+var mainContainer = document.getElementById("mainContainer");
+var h, w, size = 0;
 
 document.body.addEventListener('click', movingOn);
 function movingOn(){
   state++;
   console.log('state =' + ' ' + state);
 }
+
 setTimeout(function(){
 var message = setInterval(please, 100);
 var i = 0;
@@ -23,12 +27,12 @@ function please() {
 }
 }, 1400);
 
-var mainContainer = document.getElementById("mainContainer");
 if (state == 0) {
   setTimeout(function(){
     mainContainer.onclick = crackScreen();
   }, 4000);
 }
+
 function crackScreen() {
   mainContainer.style.backgroundImage = "url('broken.jpg')";
   let greeting = document.getElementById('greeting');
@@ -55,9 +59,11 @@ let brokenScreen = [
   { // Fiction vs reality, time
     "title" : "content",
     "words" :[
-    { "first":"ownership", "more":[ "copyright", "ownership", "YouTube"]},
-    { "first":"expectations", "more":[ "expectations", "parasocial", "stress", "demand"]},
-    { "first":"negativity", "more":[ "online gambling", "online hate", "cyberbullying", "addiction"]},
+    { "first":"ownership", "more":[ "copyright", "ownership", "censorship", "company", "infringement", "publish", "host"]},
+    { "first":"experience", "more":[ "meaningful", "mindless", "communication", "friends", "efficiency", "understanding","entertainment"]},
+    { "first":"recommended", "more":[ "echo", "amplify", "conspiracy", "choice", "addiction", "continue"]},
+    { "first":"expectations", "more":[ "expectations", "parasocial", "stress", "demand", "more", "more", "more"]},
+    { "first":"negativity", "more":[ "online gambling", "online hate", "cyberbullying", "addiction", "explicit"]},
     { "first":"algorithm", "more":[ "algorithm", "fake news", "ethics", "influence", "machine learning", "bias"]},
     { "first":"monetization", "more":[ "monetization", "restrictions", "brands", "advertising", "consumption"]}
     ]
@@ -68,43 +74,44 @@ let brokenScreen = [
     { "first":"self-image", "more":[ "self-image", "comparison", "friendship paradox", "beauty", "perception" ] },
     { "first":"mental health", "more":[ "depression", "social isolation", "anxiety", "addiction", "confident", "satisfied", "happy"]},
     { "first":"friends", "more":[ "friends", "online vs in-person", "forums", "social", "belonging", "understanding"]},
-    { "first":"presentation", "more":[ "real vs ideal", "presentation", "social media", "happy", "currated image"] }
+    { "first":"presentation", "more":[ "real vs ideal", "presentation", "social media", "happy", "currated image"] },
+    { "first":"identity", "more":[ "exploration", "community", "interests", "need for acceptance", "fear", "identity"] }
     ]
   },
   {
-    "title" : "platform and consumer",
+    "title" : "company and consumer",
     "words" :[
-    { "first":"ideology", "more":[ "dark patterns", "planned obsolescence"]},
-    { "first":"changed behavior", "more":[ "herd mentality", "dark patterns", "marketing", "changed behavior", "products"]},
-    { "first":"security", "more":[ "authentification", "passcodes", "log-in", "accounts"]},
+    { "first":"ideology", "more":[ "platform", "dark patterns", "planned obsolescence", "growth", "management"]},
+    { "first":"products", "more":[ "herd mentality", "dark patterns", "marketing", "changed behavior", "products", "adspeak", "trend"]},
+    { "first":"security", "more":[ "authentification", "passcodes", "log-in", "accounts", "data"]},
     { "first":"consumption", "more":[ ]},
+    { "first":"coorporation", "more":[ ]}
     ]
   },
   { // show log of what the user has done on the website, positive language
-    "title" : "privacy",
+    "title" : "government",
     "words" :[
-    { "first":"privacy", "more":[ ]},
-    { "first":"government", "more":[ ]},
-    { "first":"freedom", "more":[ ]},
-    { "first":"facial recognition", "more":[ ]},
-    { "first":"surveillance", "more":[ ]},
-    { "first":"data mining", "more":[ ]}
+    { "first":"politics", "more":[ "geopolitics", "cyber warfare", "interdependence", "policy making", "soverignty", "protection", "diplomacy", "digital protests", "human rights"]},
+    { "first":"security", "more":[ "security", "trust", "cybercrime", "data breaches", "hacking"]},
+    { "first":"surveillance", "more":[ "facial recognition", "privacy", "freedom"]},
+    { "first":"data", "more":[ "data mining", "concern", "collection"]}
     ]
   },
-  { // Idols, gender, anonymity // Identity, exploration, fear of failure, depression
+  { // Idols, gender, anonymity // , depression
     "title" : "creator",
     "words" :[
-    { "first":"personalities", "more":[ "personalities", "idols", "celebrity", "anonymity", "parasocial", "freedom"]},
-    { "first":"live-streaming", "more":[ ]},
-    { "first":"expectations", "more":[ "expectations", "pressure", "clout chasing", "cancel culture", "burden"]},
-    { "first":"brand", "more":[ "brand", "sell-out"]}
+    { "first":"personalities", "more":[ "personalities", "idols", "celebrity", "anonymity", "parasocial", "freedom", "gender"]},
+    { "first":"live-streaming", "more":[ "life", "fame", "control", "influence", "creativity", "ego", "winning", "chat", "mobilization", "living for an audience"]},
+    { "first":"expectations", "more":[ "expectations", "pressure", "clout chasing", "cancel culture", "burden", "hate", "commitment"]},
+    { "first":"brand", "more":[ "brand", "sell-out", "judgment", "marketing", "control", "sponsor"]}
     ]
   }
 ];
 
-var h, w, size = 0;
+
 function listPages(){
   mainContainer.style.backgroundImage = "url('broken.jpg')";
+  typed.style.display = "none";
   for (var i = 0; i < brokenScreen.length; i++) {
     let incoming = brokenScreen[i];
     let word = incoming['title'];
@@ -135,13 +142,13 @@ function information(number) {
   console.log(brokenScreen[number]['words']);
   mainContainer.style.backgroundImage = '';
   mainContainer.innerHTML = '';
-  // tHack = -10 + Math.random() * 50;
-  // lHack = -10 + Math.random() *30;
-  // wHack = 20 + Math.random() *50;
-  // typed.style.top = tHack + "vh";
-  // typed.style.left = lHack + "vw";
-  // typed.style.width = wHack + "vw";
-  // typed.style.display = "block";
+  tHack = -10 + Math.random() * 50;
+  lHack = -10 + Math.random() *30;
+  wHack = 20 + Math.random() *60;
+  typed.style.top = tHack + "vh";
+  typed.style.left = lHack + "vw";
+  typed.style.width = wHack + "vw";
+  typed.style.display = "block";
   let incoming = brokenScreen[number]['words']
   for (i in incoming) {
     let word = incoming[i].first;
